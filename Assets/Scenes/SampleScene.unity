@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 543450652252384106}
-  hoop: {fileID: 7580747531674955000, guid: 6a0a888307a95e140acb9315f4775bc4, type: 3}
+  hoop: {fileID: 3038190593981513118, guid: 902976894acce4f4398336a674c166b6, type: 3}
 --- !u!4 &543450652252384106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1679270856235763121, guid: 9fc44c3e7ebd8d043ba74f424f40a926,
@@ -807,15 +807,20 @@ PrefabInstance:
       propertyPath: point
       value: 
       objectReference: {fileID: 693293063}
+    - target: {fileID: 919132148328657361, guid: 9fc44c3e7ebd8d043ba74f424f40a926,
+        type: 3}
+      propertyPath: speed
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 1679270856235763121, guid: 9fc44c3e7ebd8d043ba74f424f40a926,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.41
+      value: 0.979
       objectReference: {fileID: 0}
     - target: {fileID: 1679270856235763121, guid: 9fc44c3e7ebd8d043ba74f424f40a926,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.473
+      value: 2.033
       objectReference: {fileID: 0}
     - target: {fileID: 1679270856235763121, guid: 9fc44c3e7ebd8d043ba74f424f40a926,
         type: 3}
