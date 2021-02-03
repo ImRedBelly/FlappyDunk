@@ -3,23 +3,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform ball;//озиция мяча
-    public GameObject hoop;//акой объект спавню
+    public GameObject hoop;
 
     void Start()
     {
         StartCoroutine(Spawn());
     }
-    IEnumerator Spawn() // спавн колец
+    IEnumerator Spawn()
     {
         Vector2 position = transform.position;
+
         while (true)
         {
-
             position.x += 6.0f;
-
-            Instantiate(hoop, position,Quaternion.Euler(90f, 0f, Random.Range(-20f, 50f)));
-
+            Instantiate(hoop, position, Quaternion.Euler(0f, 0f, Random.Range(-20f, 50f)));
             yield return new WaitForSeconds(2.0f);
         }
     }

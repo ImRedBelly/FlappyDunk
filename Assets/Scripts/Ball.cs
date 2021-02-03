@@ -3,50 +3,50 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
-    public Rigidbody rb;
+    public Rigidbody2D rb;
 
     public float speed;
     public float maxSpeedX;
     public float maxSpeedY;
 
-    public Text point; // текст очков
+    public Text point;
+    int points;
 
-    int points; //очки
-
-    void Update()
+    private void Update()
     {
-
-        point.text = "POINTS: " + points;
         if (Input.GetMouseButtonDown(0))
         {
-
             StartBall();
-
         }
-
     }
 
-   public void StartBall()
+    private void StartBall()
     {
-        var newVelocity = rb.velocity;
+        //Vector2 force = new Vector3(maxSpeedX, maxSpeedY, 0) * speed;
+        //rb.AddForce(force);
 
-        Vector3 force = new Vector3(0.3f, 5, 0) * speed;
-        rb.AddForce(force);
+     
+            var newVelocity = rb.velocity;
 
-        newVelocity.x = maxSpeedX;
-        newVelocity.y = maxSpeedY;
+            Vector3 force = new Vector3(0.3f, 5, 0) * speed;
+            rb.AddForce(force);
+
+            newVelocity.x = maxSpeedX;
+            newVelocity.y = maxSpeedY;
 
 
-        rb.velocity = newVelocity;
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+            rb.velocity = newVelocity;
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+        
     }
-    void OnTriggerExit(Collider collision)   // проверяю коллизию с кольцом 
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Hoop")
+        if (collision.gameObject.CompareTag("Trigger"))
         {
             points++;
-            Destroy(GameObject.FindWithTag("Hoop"));
+            point.text = "POINTS: " + points;
+            Destroy(collision.transform.parent.gameObject);
         }
     }
-
 }

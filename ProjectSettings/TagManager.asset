@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hoop
   - Ball
+  - Trigger
   layers:
   - Default
   - TransparentFX
