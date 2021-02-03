@@ -232,9 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 410324913}
-  speed: 100
-  maxSpeedX: 1.5
-  maxSpeedY: 3
+  speed: 50
+  maxSpeedX: 2
+  maxSpeedY: 2
   point: {fileID: 281712354}
 --- !u!58 &410324912
 CircleCollider2D:
