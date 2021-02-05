@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D rb;
-
+    public Animator animator;
     public float speed;
     public float maxSpeedX;
     public float maxSpeedY;
@@ -24,20 +24,20 @@ public class Ball : MonoBehaviour
     {
         //Vector2 force = new Vector3(maxSpeedX, maxSpeedY, 0) * speed;
         //rb.AddForce(force);
+        animator.SetTrigger("Fly");
 
-     
-            var newVelocity = rb.velocity;
+        var newVelocity = rb.velocity;
 
-            Vector3 force = new Vector3(0.3f, 5, 0) * speed;
-            rb.AddForce(force);
+        Vector3 force = new Vector3(0.3f, 5, 0) * speed;
+        rb.AddForce(force);
 
-            newVelocity.x = maxSpeedX;
-            newVelocity.y = maxSpeedY;
+        newVelocity.x = maxSpeedX;
+        newVelocity.y = maxSpeedY;
 
 
-            rb.velocity = newVelocity;
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
-        
+        rb.velocity = newVelocity;
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
