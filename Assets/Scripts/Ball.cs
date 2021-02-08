@@ -5,47 +5,30 @@ public class Ball : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
-    public float speed;
-    public float maxSpeedX;
-    public float maxSpeedY;
+    public float upForce;
 
-    public Text point;
-    int points;
+
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartBall();
+            FlapBall();
         }
     }
 
-    private void StartBall()
+    private void FlapBall()
     {
-        //Vector2 force = new Vector3(maxSpeedX, maxSpeedY, 0) * speed;
-        //rb.AddForce(force);
         animator.SetTrigger("Fly");
-
-        var newVelocity = rb.velocity;
-
-        Vector3 force = new Vector3(0.3f, 5, 0) * speed;
-        rb.AddForce(force);
-
-        newVelocity.x = maxSpeedX;
-        newVelocity.y = maxSpeedY;
-
-
-        rb.velocity = newVelocity;
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
-
+        rb.velocity = Vector2.zero;
+        rb.AddForce(new Vector2(0.3f, 1) * upForce, ForceMode2D.Impulse);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Trigger"))
         {
-            points++;
-            point.text = "POINTS: " + points;
+            GameManager.instance.points++;
             Destroy(collision.transform.parent.gameObject);
         }
     }

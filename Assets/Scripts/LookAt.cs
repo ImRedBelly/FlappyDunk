@@ -6,6 +6,6 @@ public class LookAt : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(ball.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(ball.position.x + 2, transform.position.y, transform.position.z);
     }
 }
