@@ -3,9 +3,15 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    public static Ball instance;
     public Rigidbody2D rb;
     public Animator animator;
     public float upForce;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
 
 
@@ -17,7 +23,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void FlapBall()
+    public void FlapBall()
     {
         animator.SetTrigger("Fly");
         rb.velocity = Vector2.zero;

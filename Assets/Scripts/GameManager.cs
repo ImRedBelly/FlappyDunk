@@ -5,6 +5,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+
     public GameObject hoop;
     public Text point;
     public int points;
@@ -15,8 +17,10 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        point.text = "POINTS: " + points;
+        point.text = points.ToString();
     }
+    
+
     IEnumerator Spawn()
     {
         Vector2 position = transform.position;
